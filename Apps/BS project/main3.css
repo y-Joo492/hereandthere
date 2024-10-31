@@ -1,4 +1,4 @@
-/* 뒤로가기 버튼의 스타일 */
+/* 뒤로가기 버튼 */
 #back-btn {
     position: absolute;       
     top: 20px;               
@@ -13,7 +13,6 @@
     transition: background-color 0.3s ease; 
 }
 
-/* 버튼에 마우스를 올렸을 때 */
 #back-btn:hover {
     background-color: rgb(100, 190, 100); 
 }
@@ -188,7 +187,7 @@ select:focus {
     margin: auto;
 }
 
-/* 저장 버튼 스타일 */
+/* 저장 버튼 */
 .save-button {
     text-align: center;
 }

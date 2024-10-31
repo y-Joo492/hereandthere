@@ -8,10 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
         banner.innerText = "사용자 이름을 찾을 수 없습니다.";
     }
 
-    // 버튼 클릭 시 third.html로 이동하는 코드
     const addHereBtn = document.getElementById("add-here-btn");
     addHereBtn.addEventListener("click", () => {
         window.location.href = "third.html"; // third.html로 이동
     });
+
+    const domHereBtn = document.getElementById("dom-here-btn");
+    domHereBtn.addEventListener("click", () => {
+        window.location.href = "forth.html"; // forth.html로 이동
+    });
+    
 });
 

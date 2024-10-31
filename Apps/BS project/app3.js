@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 뒤로가기 버튼 선택
+ 
     const backBtn = document.getElementById("back-btn");
 
-    // 뒤로가기 버튼 클릭 시 second.html로 이동
     if (backBtn) {
         backBtn.addEventListener("click", () => {
             window.location.href = "second.html"; 
@@ -19,7 +18,6 @@ function updatePeriod() {
 function setTravelType(type) {
     console.log(`type received: ${type}`);
 
-    // 여행 유형에 따른 텍스트 설정
     let selectedText = '';
     if (type === "domestic") {
         selectedText = "국내";
@@ -29,7 +27,6 @@ function setTravelType(type) {
         selectedText = "여행 유형 선택 오류";
     }
 
-    // 선택지 업데이트
     updateLocationOptions(type);
 }
 

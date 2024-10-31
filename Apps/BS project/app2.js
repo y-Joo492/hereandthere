@@ -17,6 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
     domHereBtn.addEventListener("click", () => {
         window.location.href = "forth.html"; // forth.html로 이동
     });
+
+    const intHereBtn = document.getElementById("wor-here-btn");
+    intHereBtn.addEventListener("click", () => {
+        window.location.href = "fifth.html"; // fifth.html로 이동
+    });
     
 });
 

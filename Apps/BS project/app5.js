@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const recordsContainer = document.getElementById("domesticRecords");
+    const recordsContainer = document.getElementById("internationalRecords");
 
     // 로컬스토리지에서 데이터 가져오기
     const storedData = localStorage.getItem("travelRecord");
@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // travelRecords가 객체라면 배열로 감싸기
     const recordsArray = Array.isArray(travelRecords) ? travelRecords : [travelRecords];
 
-    // "국내" 여행 기록만 필터링
-    const domesticRecords = recordsArray.filter(record => record.travelType === "domestic" || record.travelType === "국내");
+    // "해외" 여행 기록만 필터링
+    const internationalRecords = recordsArray.filter(record => record.travelType === "international" || record.travelType === "해외");
 
-    // 필터링한 국내 여행 기록을 화면에 표시
-    if (domesticRecords.length > 0) {
-        domesticRecords.forEach(record => {
+    // 필터링한 해외 여행 기록을 화면에 표시
+    if (internationalRecords.length > 0) {
+        internationalRecords.forEach(record => {
             const recordElement = document.createElement("div");
             recordElement.classList.add("record");
 
@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
             recordsContainer.appendChild(recordElement);
         });
     } else {
-        recordsContainer.innerHTML = "<p>저장된 국내 여행 기록이 없습니다.</p>";
+        recordsContainer.innerHTML = "<p>저장된 해외 여행 기록이 없습니다.</p>";
     }
 });
-

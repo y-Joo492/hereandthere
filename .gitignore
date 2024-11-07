@@ -1,0 +1,22 @@
+# 시스템 파일 무시
+.DS_Store
+.Trash/
+.zsh_history
+.zsh_sessions/
+
+# 홈 디렉토리의 설정 파일 무시
+.gitconfig
+.viminfo
+
+# 특정 폴더 무시
+.vscode/
+.npm/
+.swiftpm/
+
+# 프로젝트 디렉토리 내 특정 디렉토리 무시
+moonbucks-menu-server/
+node_modules/
+
+# 특정 파일 무시
+*.log # 로그 파일 무시
+*.tmp # 임시 파일 무시

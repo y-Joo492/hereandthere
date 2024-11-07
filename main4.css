@@ -1,0 +1,33 @@
+/* 뒤로가기 버튼 */
+#back-btn {
+    position: absolute;       
+    top: 20px;               
+    left: 20px;              
+    font-size: 20px;          
+    padding: 10px 20px;       
+    background-color: rgb(100, 200, 100); 
+    color: white;           
+    border: none;           
+    border-radius: 5px;      
+    cursor: pointer;          
+    transition: background-color 0.3s ease; 
+}
+
+#back-btn:hover {
+    background-color: rgb(100, 190, 100); 
+}
+
+/* 국내 여행 기록 스타일 */
+#domesticRecords {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 80px;
+}
+
+.record {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

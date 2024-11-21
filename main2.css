@@ -34,6 +34,7 @@ body {
 
 /* 버튼 섹션 */
 #button-section {
+
     display: flex;
     flex-direction: column; /* 버튼을 세로로 나열 */
     justify-content: flex-start; /* 버튼 상단 정렬 */
@@ -41,14 +42,16 @@ body {
     gap: 15px; /* 버튼 간격 */
     background-color: #F8F8FF; /* 연한 배경색 */
     padding: 20px;
-    width: 20%; /* 버튼 섹션의 너비 */
+    width: 40%; /* 버튼 섹션의 너비 */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 오른쪽 경계 그림자 */
     margin-left: 20px; /* 화면 왼쪽에서 20px 떨어짐 */
+    overflow-y: auto; /* 버튼이 많을 경우 스크롤 가능 */
+    box-sizing: border-box; /* 패딩 포함 크기 계산 */
 }
 
 /* 버튼 스타일 */
 button {
-    padding: 12px 24px; /* 버튼 크기 줄임 */
+    padding: 6px 12px; /* 버튼 크기 줄임 */
     font-size: 16px; /* 버튼 글씨 크기 조정 */
     background-color: #6EC5E9;
     color: white;
@@ -56,15 +59,17 @@ button {
     border-radius: 6px; /* 모서리 둥글게 */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    width: 80%; /* 버튼 너비를 섹션에 맞춤 */
-    text-align: left; /* 텍스트를 왼쪽 정렬 */
-    height: auto; /* 높이는 패딩에 의해 자동으로 조정 */
-    margin-bottom: 15px; /* 각 버튼 아래에 간격 추가 */
+    width: 40%; /* 버튼 너비를 섹션에 맞춤 */
+    box-sizing: border-box; /* 패딩 포함 크기 계산 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    height: auto; /* 높이는 패딩에 의해 자동 조정 */
+    margin-bottom: 15px;
+
 }
 
 button:hover {
     background-color: #60accc;
-    transform: scale(1.05);
+    transform: scale(1.01);
 }
 
 /* 이미지 섹션 */
@@ -77,21 +82,19 @@ button:hover {
     gap: 20px; /* 이미지 간격 */
     padding: 20px;
     background-color: #ffffff; /* 흰색 배경 */
-    overflow-y: auto; /* 스크롤 가능 */
+
 }
 
 /* 이미지 크기 통일 */
 #image-section img {
-    width: 150px;         /* 가로 크기 */
-    height: 150px;        /* 세로 크기 */
+    width: 200px;         /* 가로 크기 */
+    height: 200px;        /* 세로 크기 */
     object-fit: cover;    /* 이미지 비율 유지하며 자르기 */
     border-radius: 10px;  /* 모서리 둥글게 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
     margin: 10px;         /* 이미지 간 간격 */
     transition: transform 0.3s ease; /* 호버 시 애니메이션 */
 }
 
 #image-section img:hover {
-    transform: scale(1.1); /* 호버 시 약간 확대 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.5); /* 호버 시 약간 확대 */
 }

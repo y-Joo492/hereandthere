@@ -4,7 +4,7 @@
     width: 100vw; 
     height: 100vh; 
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-image: linear-gradient(135deg, darkgreen, darkgreen);
+    background-image: linear-gradient(135deg, #6EC5E9, #F8F8FF);
     display: flex; 
     flex-direction: column;
     justify-content: center; 
@@ -14,13 +14,13 @@
 h1 {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 72px; /* h1의 글씨 크기 */
-    color: ivory;
+    color: #444444;
 }
 
 h5 {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 24px; 
-    color: ivory;
+    color: #444444;
 }
 
 /* 입력 폼과 버튼 스타일 */
@@ -33,8 +33,8 @@ h5 {
 #login-form button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: rgb(100, 200, 100, 0.5); /* 버튼 색상 */
-    color: white;
+    background-color: #6EC5E9; /* 버튼 색상 */
+    color: #444444;
     border: none;
     border-radius: 5px;
     cursor: pointer;

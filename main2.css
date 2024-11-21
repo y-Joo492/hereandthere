@@ -43,6 +43,7 @@ body {
     padding: 20px;
     width: 20%; /* 버튼 섹션의 너비 */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 오른쪽 경계 그림자 */
+    margin-left: 20px; /* 화면 왼쪽에서 20px 떨어짐 */
 }
 
 /* 버튼 스타일 */
@@ -55,7 +56,7 @@ button {
     border-radius: 6px; /* 모서리 둥글게 */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    width: 40%; /* 버튼 너비를 섹션에 맞춤 */
+    width: 80%; /* 버튼 너비를 섹션에 맞춤 */
     text-align: left; /* 텍스트를 왼쪽 정렬 */
     height: auto; /* 높이는 패딩에 의해 자동으로 조정 */
     margin-bottom: 15px; /* 각 버튼 아래에 간격 추가 */
@@ -68,7 +69,7 @@ button:hover {
 
 /* 이미지 섹션 */
 #image-section {
-    flex: 1; /* 나머지 공간 차지 */
+    flex: 1;
     display: flex;
     flex-wrap: wrap; /* 이미지가 여러 줄로 배치되도록 설정 */
     justify-content: center; /* 이미지 중앙 정렬 */

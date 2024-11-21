@@ -5,7 +5,7 @@
     left: 20px;              
     font-size: 20px;          
     padding: 10px 20px;       
-    background-color: rgb(100, 200, 100); 
+    background-color: #4eb7e4;; 
     color: white;           
     border: none;           
     border-radius: 5px;      
@@ -14,7 +14,7 @@
 }
 
 #back-btn:hover {
-    background-color: rgb(100, 190, 100); 
+    background-color: #60accc; 
 }
 
 /* 저장 버튼 */
@@ -28,7 +28,7 @@
     right: 20px;              
     font-size: 20px;          
     padding: 10px 20px;       
-    background-color: rgb(100, 200, 100); 
+    background-color: #4eb7e4;; 
     color: white;           
     border: none;           
     border-radius: 5px;      
@@ -37,7 +37,7 @@
 }
 
 #saveButton:hover {
-    background-color: rgb(0, 190, 100);
+    background-color: #60accc;
 }
 
 body {
@@ -99,7 +99,7 @@ input[type="date"]::placeholder {
 
 input[type="date"]:focus {
     outline: none;
-    border-color: rgb(100, 200, 100);
+    border-color: #4eb7e4;
 }
 
 .travel-location {
@@ -122,7 +122,7 @@ select {
 
 select:focus {
     outline: none;
-    border-color: rgb(100, 200, 100);
+    border-color: #4eb7e4;
 }
 
 .travel-companions {
@@ -149,7 +149,7 @@ select:focus {
     font-size: 20px;
     padding: 5px 10px;
     margin-top: 10px;
-    background-color: rgb(100, 200, 100);
+    background-color: #4eb7e4;
     color: white;
     border: none;
     border-radius: 5px;
@@ -158,7 +158,7 @@ select:focus {
 }
 
 #addCompanionBtn:hover {
-    background-color: rgb(100, 180, 100);
+    background-color: #60accc;
 }
 
 /* 한 줄 후기 입력 스타일 */

@@ -56,25 +56,18 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* 이미지 섹션 */
-#image-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    background-color: #F5FFFA; /* 아이보리 배경 */
+/* 이미지 크기 통일 */
+#image-section img {
+    width: 150px;         /* 가로 크기 */
+    height: 150px;        /* 세로 크기 */
+    object-fit: cover;    /* 이미지 비율 유지하며 자르기 */
+    border-radius: 10px;  /* 모서리 둥글게 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    margin: 10px;         /* 이미지 간 간격 */
+    transition: transform 0.3s ease; /* 호버 시 애니메이션 */
 }
 
-/* 이미지 스타일 */
-.clickable-image {
-    width: 250px; /* 이미지 크기 조정 */
-    height: auto;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.clickable-image:hover {
-    transform: scale(1.05);
+#image-section img:hover {
+    transform: scale(1.1); /* 호버 시 약간 확대 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

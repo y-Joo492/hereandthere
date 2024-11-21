@@ -8,7 +8,11 @@
 </head>
 <body>
     <button id="back-btn">뒤로가기</button>
+    <div class="save-button">
+        <button id="saveButton" onclick="saveRecord()">저장하기</button>
+    </div>
 
+<div class="container">
     <div class="feature-box travel-type">
         <h2>여행 유형 선택</h2>
         <label>
@@ -48,9 +52,14 @@
         <input type="text" id="reviewInput" placeholder="한 줄로 여행 후기를 적어주세요">
     </div>
 
-    <div class="save-button">
-        <button id="saveButton" onclick="saveRecord()">저장하기</button>
+    <div class="feature-box photo-upload-section">
+        <h2>사진 업로드</h2>
+        <input type="file" id="photoUpload" accept="image/*" multiple>
+        <div id="previewContainer">
+            <!-- 미리보기 이미지가 이곳에 추가됩니다 -->
+        </div>
     </div>
+</div>
 
     <script src="app3.js"></script> 
 </body>

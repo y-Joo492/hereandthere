@@ -17,6 +17,29 @@
     background-color: rgb(100, 190, 100); 
 }
 
+/* 저장 버튼 */
+.save-button {
+    text-align: center;
+}
+
+#saveButton {
+    position: absolute;       
+    top: 20px;               
+    right: 20px;              
+    font-size: 20px;          
+    padding: 10px 20px;       
+    background-color: rgb(100, 200, 100); 
+    color: white;           
+    border: none;           
+    border-radius: 5px;      
+    cursor: pointer;          
+    transition: background-color 0.3s ease; 
+}
+
+#saveButton:hover {
+    background-color: rgb(0, 190, 100);
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -26,6 +49,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f2f2f2;
+    position: relative;
 }
 
 .travel-type {
@@ -162,10 +186,51 @@ select:focus {
     font-style: italic;
 }
 
+#previewContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* 이미지 간격 */
+    margin-top: 10px;
+    width: 100%; /* 섹션의 폭에 맞게 */
+    height: 120px; /* 크기를 작게 조정 */
+    overflow-y: auto; /* 이미지가 많을 경우 스크롤 가능 */
+    padding: 5px; /* 내부 여백 */
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* 경계선 추가 (선택 사항) */
+    border-radius: 5px; /* 박스 모서리 둥글게 */
+    background-color: #f9f9f9; /* 박스 배경색 */
+}
+
+/* 사진 업로드 섹션 */
+.photo-upload-section {
+    width: 100%;
+    height: 100%; /* 다른 기능들과 같은 .feature-box 크기 유지 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 미리보기 이미지 스타일 */
+#previewContainer img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover; /* 이미지 비율 유지하며 크기 맞춤 */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#previewContainer img:hover {
+    transform: scale(1.1); /* 호버 시 확대 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 /* 전체 상자 통일 크기 */
 .feature-box {
-    width: 300px;              /* 고정된 폭 */
-    height: 300px;             /* 고정된 높이 */
+    width: 200px;              /* 고정된 폭 */
+    height: 200px;             /* 고정된 높이 */
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
@@ -180,6 +245,8 @@ select:focus {
 /* 레이아웃 그리드 설정 */
 .container {
     display: grid;
+    padding-top: 30px;
+    transform: translateY(30px);
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 20px;
@@ -187,25 +254,3 @@ select:focus {
     margin: auto;
 }
 
-/* 저장 버튼 */
-.save-button {
-    text-align: center;
-}
-
-#saveButton {
-    position: absolute;       
-    top: 20px;               
-    right: 20px;              
-    font-size: 20px;          
-    padding: 10px 20px;       
-    background-color: rgb(100, 200, 100); 
-    color: white;           
-    border: none;           
-    border-radius: 5px;      
-    cursor: pointer;          
-    transition: background-color 0.3s ease; 
-}
-
-#saveButton:hover {
-    background-color: rgb(0, 190, 100);
-}

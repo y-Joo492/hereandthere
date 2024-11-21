@@ -2,11 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
  
     const backBtn = document.getElementById("back-btn");
 
+    //뒤로가기 버튼
     if (backBtn) {
         backBtn.addEventListener("click", () => {
             window.location.href = "second.html"; 
         });
     }
+
+        // 사진 업로드 초기화
+        const photoUpload = document.getElementById("photoUpload");
+        if (photoUpload) {
+            photoUpload.addEventListener("change", handlePhotoUpload);
+        }
 });
 
 function updatePeriod() {
@@ -76,6 +83,36 @@ function addCompanionInput() {
     companionList.appendChild(newInput);
 }
 
+function handlePhotoUpload(event) {
+    const files = Array.from(event.target.files); // 선택한 파일 목록
+    const previewContainer = document.getElementById("previewContainer"); // 미리보기 영역
+
+    // 로컬스토리지에서 기존 사진 불러오기
+    const storedPhotos = JSON.parse(localStorage.getItem("uploadedPhotos")) || [];
+
+    files.forEach((file) => {
+        const reader = new FileReader();
+
+        // 파일 로드 완료 시 실행
+        reader.onload = (e) => {
+            // 미리보기 추가
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            img.alt = "Uploaded photo";
+            img.style.width = "100px";
+            img.style.height = "100px";
+            img.style.margin = "5px";
+            previewContainer.appendChild(img);
+
+            // 로컬스토리지에 저장
+            storedPhotos.push(e.target.result);
+            localStorage.setItem("uploadedPhotos", JSON.stringify(storedPhotos));
+        };
+
+        reader.readAsDataURL(file); // 파일을 Base64로 읽기
+    });
+}
+
 function saveRecord() {
     // 여행 유형 선택 값
     const travelType = document.querySelector('input[name="travelType"]:checked')?.value || "미선택";
@@ -93,6 +130,9 @@ function saveRecord() {
     // 한 줄 후기 값
     const review = document.getElementById("reviewInput").value;
 
+    // 사진 데이터 가져오기
+    const photos = JSON.parse(localStorage.getItem("uploadedPhotos")) || [];
+
     // 로컬스토리지에서 기존 기록 불러오기
     const storedData = localStorage.getItem("travelRecord");
     const travelRecords = storedData ? JSON.parse(storedData) : [];
@@ -104,7 +144,8 @@ function saveRecord() {
         endDate,
         location,
         companions,
-        review
+        review,
+        photos
     };
 
     // 기존 기록 배열에 새 기록 추가

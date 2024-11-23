@@ -10,12 +10,15 @@ body {
     flex-direction: column;
 }
 
-/* 페이지를 세 부분으로 나누기 위한 섹션 */
 #container {
     display: flex;
-    flex-direction: row; /* 가로 정렬 */
-    flex: 1; /* 화면 남은 공간 차지 */
-    height: calc(100vh - 80px); /* 배너 높이를 제외한 공간 사용 */
+    flex-direction: column; /* 세로 방향으로 배치 */
+    padding: 20px;
+    gap: 20px; /* 버튼 섹션과 이미지 섹션 간 간격 */
+    align-items: center; /* 모든 섹션을 중앙 정렬 */
+    width: 100%; /* 컨테이너가 화면 전체를 차지 */
+    box-sizing: border-box;
+    max-width: 1200px; /* 필요 시 최대 너비 제한 */
 }
 
 /* 배너 섹션 */
@@ -33,15 +36,14 @@ body {
 /* 버튼 섹션 */
 #button-section {
     display: flex;
-    flex-direction: column; /* 버튼을 세로로 나열 */
-    justify-content: flex-start; /* 버튼 상단 정렬 */
-    align-items: flex-start; /* 왼쪽 정렬 */
+    flex-direction: row;/* 버튼을 가로로 나열 */
+    justify-content: center; /* 버튼 중앙 정렬 */
     gap: 15px; /* 버튼 간격 */
+    width: 100%; /* 버튼 섹션의 너비 (가로로 긴 형태) */
+    max-width: 800px; /* 최대 너비 설정 */
+    margin-top: 20px; /* 배너와의 간격 */
     background-color: #F8F8FF; /* 연한 배경색 */
-    padding: 20px;
-    width: 40%; /* 버튼 섹션의 너비 */
-    margin-left: 20px; /* 화면 왼쪽에서 20px 떨어짐 */
-    overflow-y: auto; /* 버튼이 많을 경우 스크롤 가능 */
+    padding: 10px 0; /* 상하 여백 */
     box-sizing: border-box; /* 패딩 포함 크기 계산 */
 }
 
@@ -54,13 +56,10 @@ button {
     border: none;
     border-radius: 6px; /* 모서리 둥글게 */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    width: 40%; /* 버튼 너비를 섹션에 맞춤 */
-    box-sizing: border-box; /* 패딩 포함 크기 계산 */
+    transition: background-color 0.3s ease;
+    flex: none; /* 버튼 간 동일한 너비 유지 */
+    width: 150px; /* 고정 너비 */
     text-align: center; /* 텍스트 중앙 정렬 */
-    height: auto; /* 높이는 패딩에 의해 자동 조정 */
-    margin-bottom: 15px;
-
 }
 
 button:hover {
@@ -70,15 +69,16 @@ button:hover {
 
 /* 이미지 섹션 */
 #image-section {
-    flex: 1;
     display: flex;
     flex-wrap: wrap; /* 이미지가 여러 줄로 배치되도록 설정 */
     justify-content: center; /* 이미지 중앙 정렬 */
-    align-items: flex-start; /* 이미지 상단 정렬 */
     gap: 20px; /* 이미지 간격 */
     padding: 20px;
     background-color: #ffffff; /* 흰색 배경 */
-
+    box-sizing: border-box; /* 패딩 포함 크기 계산 */
+    width: 100%; /* 이미지 섹션의 너비 */
+    height: 400px; /* 고정된 세로 길이 */
+    max-width: 800px; /* 최대 너비 설정 */
 }
 
 /* 이미지 크기 통일 */

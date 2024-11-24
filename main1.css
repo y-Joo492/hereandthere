@@ -1,9 +1,14 @@
+body {
+    font-family: "Gamja Flower", cursive !important;
+    font-weight: 400;
+    font-style: normal;
+}
 
 #startpage {
     text-align: center;
     width: 100vw; 
     height: 100vh; 
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: "Gamja Flower", sans-serif;
     background-image: linear-gradient(135deg, #6EC5E9, #F8F8FF);
     display: flex; 
     flex-direction: column;
@@ -14,13 +19,13 @@
 h1 {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 72px; /* h1의 글씨 크기 */
-    color: #444444;
+    color: #222527;
 }
 
 h5 {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 24px; 
-    color: #444444;
+    color: #222527;
 }
 
 /* 입력 폼과 버튼 스타일 */
@@ -34,9 +39,9 @@ h5 {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #6EC5E9; /* 버튼 색상 */
-    color: #444444;
+    color: #222527;
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     cursor: pointer;
 }
 

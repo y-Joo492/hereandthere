@@ -1,3 +1,5 @@
+let uploadedPhotos = [];
+
 document.addEventListener("DOMContentLoaded", () => {
  
     const backBtn = document.getElementById("back-btn");
@@ -13,6 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const photoUpload = document.getElementById("photoUpload");
         if (photoUpload) {
             photoUpload.addEventListener("change", handlePhotoUpload);
+        }
+
+        // 저장 버튼 클릭 이벤트
+        const saveBtn = document.getElementById("save-btn");
+        if (saveBtn) {
+            saveBtn.addEventListener("click", saveRecord);
         }
 });
 
@@ -88,28 +96,50 @@ function handlePhotoUpload(event) {
     const previewContainer = document.getElementById("previewContainer"); // 미리보기 영역
 
     // 로컬스토리지에서 기존 사진 불러오기
-    const storedPhotos = JSON.parse(localStorage.getItem("uploadedPhotos")) || [];
+    const storedRecords = JSON.parse(localStorage.getItem("travelRecord")) || [];
+    uploadedPhotos = storedRecords.flatMap(record => record.photos || []); // 모든 기록에서 사진 모으기
 
     files.forEach((file) => {
         const reader = new FileReader();
 
-        // 파일 로드 완료 시 실행
         reader.onload = (e) => {
+            const photoData = e.target.result; // Base64 데이터
+            uploadedPhotos.push(photoData); // 전역 배열에 추가
+
             // 미리보기 추가
+            const photoWrapper = document.createElement("div");
+            photoWrapper.style.display = "inline-block";
+            photoWrapper.style.position = "relative";
+            photoWrapper.style.margin = "5px";
+
             const img = document.createElement("img");
-            img.src = e.target.result;
+            img.src = photoData;
             img.alt = "Uploaded photo";
             img.style.width = "100px";
             img.style.height = "100px";
-            img.style.margin = "5px";
-            previewContainer.appendChild(img);
 
-            // 로컬스토리지에 저장
-            storedPhotos.push(e.target.result);
-            localStorage.setItem("uploadedPhotos", JSON.stringify(storedPhotos));
+            const deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "X";
+            deleteBtn.style.position = "absolute";
+            deleteBtn.style.top = "0";
+            deleteBtn.style.right = "0";
+            deleteBtn.style.backgroundColor = "red";
+            deleteBtn.style.color = "white";
+            deleteBtn.style.border = "none";
+            deleteBtn.style.borderRadius = "50%";
+            deleteBtn.style.cursor = "pointer";
+
+            deleteBtn.addEventListener("click", () => {
+                uploadedPhotos = uploadedPhotos.filter((photo) => photo !== photoData);
+                previewContainer.removeChild(photoWrapper);
+            });
+
+            photoWrapper.appendChild(img);
+            photoWrapper.appendChild(deleteBtn);
+            previewContainer.appendChild(photoWrapper);
         };
 
-        reader.readAsDataURL(file); // 파일을 Base64로 읽기
+        reader.readAsDataURL(file); // 파일을 Base64로 변환
     });
 }
 
@@ -130,12 +160,10 @@ function saveRecord() {
     // 한 줄 후기 값
     const review = document.getElementById("reviewInput").value;
 
-    // 사진 데이터 가져오기
-    const photos = JSON.parse(localStorage.getItem("uploadedPhotos")) || [];
-
     // 로컬스토리지에서 기존 기록 불러오기
     const storedData = localStorage.getItem("travelRecord");
     const travelRecords = storedData ? JSON.parse(storedData) : [];
+
 
     // 새 여행 기록 생성
     const newRecord = {
@@ -145,7 +173,7 @@ function saveRecord() {
         location,
         companions,
         review,
-        photos
+        photos:uploadedPhotos
     };
 
     // 기존 기록 배열에 새 기록 추가

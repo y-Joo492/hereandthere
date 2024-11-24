@@ -16,7 +16,9 @@ body {
     padding: 20px;
     gap: 20px; /* 버튼 섹션과 이미지 섹션 간 간격 */
     align-items: center; /* 모든 섹션을 중앙 정렬 */
+    justify-content: center; /* 추가: 중앙 세로 정렬 보장 */
     width: 100%; /* 컨테이너가 화면 전체를 차지 */
+    margin: 0 auto; /* 중앙 정렬 */
     box-sizing: border-box;
     max-width: 1200px; /* 필요 시 최대 너비 제한 */
 }

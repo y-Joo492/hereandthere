@@ -28,8 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const recordElement = document.createElement("div");
             recordElement.classList.add("record");
 
+            // 시 정보 추가 (subLocation이 존재할 경우)
+            const locationText = record.subLocation && record.subLocation !== "미선택"
+                ? `${record.subLocation} ${ record.location}`  // 도 + 시 출력
+                : record.location; // 도만 출력
+
             recordElement.innerHTML = `
-                <h2>${record.location}</h2>
+                <h2>${locationText}</h2>
                 <p>여행 기간: ${record.startDate} ~ ${record.endDate}</p>
                 <p>같이 간 사람: ${record.companions.join(", ")}</p>
                 <p>한 줄 후기: ${record.review}</p>

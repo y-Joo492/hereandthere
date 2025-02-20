@@ -51,6 +51,17 @@ function updateLocationOptions(type) {
     // 선택지 초기화
     locationSelect.innerHTML = "";
 
+    // 기존 subLocationSelect 삭제 (새로운 값이 업데이트되도록)
+    let existingSubSelect = document.getElementById("subLocationSelect");
+    if (existingSubSelect) {
+        existingSubSelect.remove();
+    }
+
+    // 새로운 select 태그 (시/국가 선택용) 생성
+    let subLocationSelect = document.createElement("select");
+    subLocationSelect.id = "subLocationSelect"; // ID 설정
+    subLocationSelect.style.display = "none"; // 초기에는 숨김
+
     if (type === "domestic") {
         // 국내 선택지
         const domesticOptions = ['서울', '인천', '경기도', '충청남도', '충청북도', '전라남도', '경상남도', '경상북도'];
@@ -60,6 +71,12 @@ function updateLocationOptions(type) {
             option.text = location;
             locationSelect.add(option);
         });
+
+        // 도 선택 시 시 리스트 업데이트
+        locationSelect.addEventListener("change", function () {
+            updateSubLocationOptions(this.value, "domestic", subLocationSelect);
+        });
+
     } else if (type === "international") {
         // 해외 선택지
         const internationalOptions = ['아시아', '아프리카', '북아메리카', '남아메리카', '오세아니아'];
@@ -69,6 +86,12 @@ function updateLocationOptions(type) {
             option.text = location;
             locationSelect.add(option);
         });
+
+        // 대륙 선택 시 국가 리스트 업데이트
+        locationSelect.addEventListener("change", function () {
+            updateSubLocationOptions(this.value, "international", subLocationSelect);
+        });
+
     } else {
         // 여행 유형 선택 전 기본 안내 메시지
         let defaultOption = document.createElement("option");
@@ -76,6 +99,51 @@ function updateLocationOptions(type) {
         defaultOption.text = "여행 유형을 먼저 선택하세요";
         locationSelect.add(defaultOption);
     }
+
+    // `travel-location` div 안에 subLocationSelect 추가
+    document.querySelector(".travel-location").appendChild(subLocationSelect);
+}
+
+function updateSubLocationOptions(selectedValue, type, subLocationSelect) {
+    // 선택지 초기화
+    subLocationSelect.innerHTML = "<option value=''>지역을 선택하세요</option>";
+
+    // 국내: 도 → 시 리스트
+    const citiesByProvince = {
+        "경기도": ["수원", "성남", "고양", "용인"],
+        "충청남도": ["천안", "공주", "아산"],
+        "충청북도": ["청주", "충주", "제천"],
+        "전라남도": ["목포", "여수", "순천"],
+        "경상남도": ["창원", "김해", "진주"],
+        "경상북도": ["포항", "경주", "안동"]
+    };
+
+    // 해외: 대륙 → 국가 리스트
+    const countriesByContinent = {
+        "아시아": ["한국", "중국", "일본", "베트남"],
+        "아프리카": ["이집트", "남아프리카 공화국", "나이지리아"],
+        "북아메리카": ["미국", "캐나다", "멕시코"],
+        "남아메리카": ["브라질", "아르헨티나", "칠레"],
+        "오세아니아": ["호주", "뉴질랜드", "피지"]
+    };
+
+    let optionsList = [];
+
+    if (type === "domestic" && citiesByProvince[selectedValue]) {
+        optionsList = citiesByProvince[selectedValue]; // 선택한 도에 해당하는 시 리스트
+    } else if (type === "international" && countriesByContinent[selectedValue]) {
+        optionsList = countriesByContinent[selectedValue]; // 선택한 대륙에 해당하는 국가 리스트
+    }
+
+    optionsList.forEach(location => {
+        let option = document.createElement("option");
+        option.value = location;
+        option.text = location;
+        subLocationSelect.add(option);
+    });
+
+    // 시/국가 select를 보이도록 설정
+    subLocationSelect.style.display = "block";
 }
 
 function addCompanionInput() {
@@ -154,8 +222,14 @@ function saveRecord() {
     // 여행지 선택 값
     const location = document.getElementById("locationSelect").value || "미선택";
 
+    // 시/국가 선택 값 (subLocationSelect가 존재하는 경우)
+    const subLocationSelect = document.getElementById("subLocationSelect");
+    const subLocation = subLocationSelect ? subLocationSelect.value : "미선택";
+
     // 동반자 이름 목록
-    const companions = Array.from(document.querySelectorAll('input[name="companion[]"]')).map(input => input.value).filter(name => name);
+    const companions = Array.from(document.querySelectorAll('input[name="companion[]"]'))
+    .map(input => input.value)
+    .filter(name => name);
 
     // 한 줄 후기 값
     const review = document.getElementById("reviewInput").value;
@@ -171,6 +245,7 @@ function saveRecord() {
         startDate,
         endDate,
         location,
+        subLocation,
         companions,
         review,
         photos:uploadedPhotos

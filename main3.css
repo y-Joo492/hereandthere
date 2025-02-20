@@ -66,10 +66,34 @@ label {
     cursor: pointer;
 }
 
+/* 세부 여행지 선택 */
 #selectedType {
     margin-top: 20px;
     font-weight: bold;
     color: #333;
+}
+
+.travel-location {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px; /* 상단 요소와의 간격 */
+}
+
+select {
+    font-size: 18px;
+    padding: 5px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+select:focus {
+    outline: none;
+    border-color: #4eb7e4;
 }
 
 /* 여행 기간 선택 */
@@ -98,29 +122,6 @@ input[type="date"]::placeholder {
 }
 
 input[type="date"]:focus {
-    outline: none;
-    border-color: #4eb7e4;
-}
-
-.travel-location {
-    text-align: center;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 20px; /* 상단 요소와의 간격 */
-}
-
-select {
-    font-size: 18px;
-    padding: 5px;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-}
-
-select:focus {
     outline: none;
     border-color: #4eb7e4;
 }

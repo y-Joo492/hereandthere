@@ -53,7 +53,7 @@ function updateLocationOptions(type) {
 
     if (type === "domestic") {
         // 국내 선택지
-        const domesticOptions = ['경기도', '충청남도', '충청북도', '전라남도', '경상남도', '경상북도'];
+        const domesticOptions = ['서울', '경기도', '충청남도', '충청북도', '전라남도', '경상남도', '경상북도'];
         domesticOptions.forEach(location => {
             let option = document.createElement("option");
             option.value = location;

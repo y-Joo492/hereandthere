@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // 나라 정보 추가 (subLocation이 존재할 경우)
             const locationText = record.subLocation && record.subLocation !== "미선택"
-                ? `${record.subLocation} ${ record.location}`  // 대륙 + 나라 출력
+                ? `<span class="large-text">${record.subLocation}</span> ${record.location}`
                 : record.location; // 대륙만 출력
 
             recordElement.innerHTML = `

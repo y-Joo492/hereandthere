@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // 시 정보 추가 (subLocation이 존재할 경우)
             const locationText = record.subLocation && record.subLocation !== "미선택"
-                ? `${record.subLocation} ${ record.location}`  // 도 + 시 출력
+                ? `<span class="large-text">${record.subLocation}</span> ${record.location}`
                 : record.location; // 도만 출력
 
             recordElement.innerHTML = `

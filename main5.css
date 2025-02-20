@@ -17,6 +17,10 @@
     background-color: #60accc; 
 }
 
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
 /* 국내 여행 기록 스타일 */
 #internationalRecords { 
     display: flex;
@@ -30,4 +34,10 @@
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.large-text {
+    font-size: 1.5em;  /* 기본 크기의 1.5배 */
+    font-weight: bold; /* 글씨 굵게 */
+    color: #4eb7e4;    /* 예제 색상 (선택 가능) */
 }

@@ -49,7 +49,7 @@ function updateLocationOptions(type) {
     const locationSelect = document.getElementById("locationSelect");
 
     // 선택지 초기화
-    locationSelect.innerHTML = "";
+    locationSelect.innerHTML = "<option value=''>도/대륙을 선택하세요</option>";
 
     // 기존 subLocationSelect 삭제 (새로운 값이 업데이트되도록)
     let existingSubSelect = document.getElementById("subLocationSelect");
@@ -60,7 +60,7 @@ function updateLocationOptions(type) {
     // 새로운 select 태그 (시/국가 선택용) 생성
     let subLocationSelect = document.createElement("select");
     subLocationSelect.id = "subLocationSelect"; // ID 설정
-    subLocationSelect.style.display = "none"; // 초기에는 숨김
+    subLocationSelect.style.display = "block"; // 항상 보이도록 설정
 
     if (type === "domestic") {
         // 국내 선택지
@@ -72,10 +72,8 @@ function updateLocationOptions(type) {
             locationSelect.add(option);
         });
 
-        // 도 선택 시 시 리스트 업데이트
-        locationSelect.addEventListener("change", function () {
-            updateSubLocationOptions(this.value, "domestic", subLocationSelect);
-        });
+        // 첫 번째 도의 시/군/구 리스트를 자동으로 표시
+        updateSubLocationOptions(domesticOptions[0], "domestic", subLocationSelect);
 
     } else if (type === "international") {
         // 해외 선택지
@@ -87,18 +85,10 @@ function updateLocationOptions(type) {
             locationSelect.add(option);
         });
 
-        // 대륙 선택 시 국가 리스트 업데이트
-        locationSelect.addEventListener("change", function () {
-            updateSubLocationOptions(this.value, "international", subLocationSelect);
-        });
+        // 첫 번째 대륙의 국가 리스트를 자동으로 표시
+        updateSubLocationOptions(internationalOptions[0], "international", subLocationSelect);
 
-    } else {
-        // 여행 유형 선택 전 기본 안내 메시지
-        let defaultOption = document.createElement("option");
-        defaultOption.value = "";
-        defaultOption.text = "여행 유형을 먼저 선택하세요";
-        locationSelect.add(defaultOption);
-    }
+    } 
 
     // `travel-location` div 안에 subLocationSelect 추가
     document.querySelector(".travel-location").appendChild(subLocationSelect);

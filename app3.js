@@ -62,33 +62,28 @@ function updateLocationOptions(type) {
     subLocationSelect.id = "subLocationSelect"; // ID 설정
     subLocationSelect.style.display = "block"; // 항상 보이도록 설정
 
+    let optionsArray = [];
+
     if (type === "domestic") {
         // 국내 선택지
-        const domesticOptions = ['서울', '인천', '경기도', '충청남도', '충청북도', '전라남도', '경상남도', '경상북도', '제주도'];
-        domesticOptions.forEach(location => {
-            let option = document.createElement("option");
-            option.value = location;
-            option.text = location;
-            locationSelect.add(option);
-        });
-
-        // 첫 번째 도의 시/군/구 리스트를 자동으로 표시
-        updateSubLocationOptions(domesticOptions[0], "domestic", subLocationSelect);
-
+        optionsArray = ['서울', '인천', '경기도', '충청남도', '충청북도', '전라남도', '경상남도', '경상북도', '제주도'];
     } else if (type === "international") {
         // 해외 선택지
-        const internationalOptions = ['아시아', '유럽', '아프리카', '북아메리카', '남아메리카', '오세아니아'];
-        internationalOptions.forEach(location => {
-            let option = document.createElement("option");
-            option.value = location;
-            option.text = location;
-            locationSelect.add(option);
-        });
+        optionsArray = ['아시아', '유럽', '아프리카', '북아메리카', '남아메리카', '오세아니아'];
+    }
 
-        // 첫 번째 대륙의 국가 리스트를 자동으로 표시
-        updateSubLocationOptions(internationalOptions[0], "international", subLocationSelect);
+    optionsArray.forEach(location => {
+        let option = document.createElement("option");
+        option.value = location;
+        option.text = location;
+        locationSelect.add(option);
+    });
 
-    } 
+    // 변경 감지 후 하위 지역 업데이트
+    locationSelect.addEventListener("change", function () {
+        const selectedLocation = locationSelect.value;
+        updateSubLocationOptions(selectedLocation, type, subLocationSelect);
+    });
 
     // `travel-location` div 안에 subLocationSelect 추가
     document.querySelector(".travel-location").appendChild(subLocationSelect);

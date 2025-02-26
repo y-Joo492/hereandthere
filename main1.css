@@ -9,7 +9,7 @@ body {
     width: 100vw; 
     height: 100vh; 
     font-family: "Gamja Flower", sans-serif;
-    background-image: linear-gradient(135deg, #6EC5E9, #F8F8FF);
+    background-image: linear-gradient(180deg, #6EC5E9, #F8F8FF);
     display: flex; 
     flex-direction: column;
     justify-content: center; 
@@ -18,14 +18,14 @@ body {
 
 h1 {
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 72px; /* h1의 글씨 크기 */
-    color: #222527;
+    font-size: 80px; /* h1의 글씨 크기 */
+    color: #F8F8FF;
 }
 
 h5 {
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 24px; 
-    color: #222527;
+    font-size: 30px; 
+    color: #F8F8FF;
 }
 
 /* 입력 폼과 버튼 스타일 */
@@ -35,16 +35,20 @@ h5 {
     margin-bottom: 10px;
 }
 
+#login-form input::placeholder {
+    color: #d3d3d7
+}
+
 #login-form button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #6EC5E9; /* 버튼 색상 */
-    color: #222527;
+    background-color: rgb(100, 200, 100, 0); /* 버튼 색상 */
+    color: #6EC5E9;
     border: none;
     border-radius: 2px;
     cursor: pointer;
 }
 
 #login-form button:hover {
-    background-color: rgb(100, 200, 100, 0); /* 버튼에 마우스를 올렸을 때 */
+    background-color: #F8F8FF; /* 버튼에 마우스를 올렸을 때 */
 }

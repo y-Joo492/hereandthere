@@ -6,7 +6,7 @@
     font-size: 20px;          
     padding: 10px 20px;       
     background-color: #4eb7e4;; 
-    color: white;           
+    color: #F8F8FF;           
     border: none;           
     border-radius: 5px;      
     cursor: pointer;          
@@ -29,7 +29,7 @@
     font-size: 20px;          
     padding: 10px 20px;       
     background-color: #4eb7e4;; 
-    color: white;           
+    color: #F8F8FF;           
     border: none;           
     border-radius: 5px;      
     cursor: pointer;          
@@ -48,16 +48,16 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f2f2f2;
+    background-color: #F8F8FF;
     position: relative;
 }
 
 .travel-type {
     text-align: center;
-    background-color: #ffffff;
+    background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px #ccc;
 }
 
 label {
@@ -75,10 +75,10 @@ label {
 
 .travel-location {
     text-align: center;
-    background-color: #ffffff;
+    background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px #ccc;
     margin-top: 20px; /* 상단 요소와의 간격 */
 }
 
@@ -121,10 +121,10 @@ select:focus {
 /* 여행 기간 선택 */
 .travel-period {
     text-align: center;
-    background-color: #ffffff;
+    background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px #ccc;
     margin-top: 20px; 
     display: flex;
     flex-direction: column; /* 세로 방향 정렬 */
@@ -155,10 +155,10 @@ input[type="date"]:focus {
 
 .travel-companions {
     text-align: center;
-    background-color: #ffffff;
+    background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px #ccc;
     margin-top: 20px; /* 상단 요소와의 간격 */
 }
 
@@ -178,7 +178,7 @@ input[type="date"]:focus {
     padding: 5px 10px;
     margin-top: 10px;
     background-color: #4eb7e4;
-    color: white;
+    color: #f9f9f9;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -192,10 +192,10 @@ input[type="date"]:focus {
 /* 한 줄 후기 입력 스타일 */
 .travel-review {
     text-align: center;
-    background-color: #ffffff;
+    background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px #ccc;
     margin-top: 20px; /* 상단 요소와의 간격 */
     display: flex;
     flex-direction: column; /* 세로 방향 정렬 */
@@ -231,7 +231,6 @@ input[type="date"]:focus {
     box-sizing: border-box;
     border: 1px solid #ccc; /* 경계선 추가 (선택 사항) */
     border-radius: 5px; /* 박스 모서리 둥글게 */
-    background-color: #f9f9f9; /* 박스 배경색 */
 }
 
 /* 사진 업로드 섹션 */
@@ -250,13 +249,13 @@ input[type="date"]:focus {
     height: 80px;
     object-fit: cover; /* 이미지 비율 유지하며 크기 맞춤 */
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px #ccc;
     transition: transform 0.3s ease;
 }
 
 #previewContainer img:hover {
     transform: scale(1.1); /* 호버 시 확대 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px #ccc;
 }
 
 /* 전체 상자 통일 크기 */
@@ -266,7 +265,7 @@ input[type="date"]:focus {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px #ccc;
     margin: 10px;
     text-align: center;
     display: flex;

@@ -18,7 +18,7 @@ body {
 
 h1 {
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 80px; /* h1의 글씨 크기 */
+    font-size: 70px; /* h1의 글씨 크기 */
     color: #F8F8FF;
 }
 
@@ -33,10 +33,11 @@ h5 {
     padding: 10px;
     font-size: 16px;
     margin-bottom: 10px;
+    color: #ccc
 }
 
 #login-form input::placeholder {
-    color: #d3d3d7
+    color: #ccc
 }
 
 #login-form button {

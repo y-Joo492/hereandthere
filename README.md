@@ -17,7 +17,8 @@ HTML, CSS, JavaScript, Github, Vercel
 https://youtu.be/NjM8R7YXVTs?si=8zpQvG_ljpp11RJJ
 
 #설명서
-[여기저기_홍연주.pdf](https://github.com/user-attachments/files/34308607/_.pdf)
+<img width="594" height="841" alt="스크린샷 2026-11-03 오후 5 13 19" src="https://github.com/user-attachments/assets/17404d1a-6d78-44f3-a3a1-aafd3a7a76a3" />
+
 
 
 #배포 링크
